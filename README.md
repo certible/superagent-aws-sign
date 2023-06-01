@@ -111,7 +111,8 @@ const customEnd = signer.add('custom-service-name');
 To run the test you need to setup the SAM resources, see [template.yaml](template.yaml) for details. Add the generated cloudformation output to the `.env` file, see template [.env.template](.env.template) for details.
 
 ```shell
-npm run test
+sam build
+sam deploy --guided
 ```
 
 ## Honorable Mentions
