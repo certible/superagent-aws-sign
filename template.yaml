@@ -1,0 +1,83 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Dummy ressources to test the package
+
+Resources:
+  RepoSuperagentAwsSignTestRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: RepoSuperagentAwsSignSignTestRole
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: '*'
+            Action: sts:AssumeRole
+
+  RepoSuperagentAwsSignTestApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: sam-repo-superagent-aws-sign
+      StageName: prod
+      Auth:
+        DefaultAuthorizer: AWS_IAM
+        InvokeRole: !GetAtt RepoSuperagentAwsSignTestRole.Arn
+      DefinitionBody:
+        {
+          "swagger": "2.0",
+          "info": {
+            "title": "Test API",
+            "version": "1.0"
+          },
+          "paths": {
+            "/ping": {
+              "get": {
+                "responses": {
+                  "200":
+                    {
+                      "description": "Successful response",
+                      "content": {
+                        "application/json": {
+                          "schema": {}
+                        }
+                      }
+                    }
+                },
+                "x-amazon-apigateway-integration": {
+                  "type": "mock",
+                  "requestTemplates": {
+                    "application/json": "{ \"statusCode\": 200 }"
+                  },
+                  "responses": {
+                    "default": {
+                      "statusCode": "200"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+
+  RepoSuperagentAwsSignTestRolePolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: RepoSuperagentAwsSignTestRolePolicy
+      Roles:
+        - !Ref RepoSuperagentAwsSignTestRole
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - execute-api:Invoke
+            Resource:
+              - !Sub "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${RepoSuperagentAwsSignTestApi}/*"
+
+Outputs:
+  TestRoleArn:
+    Value: !GetAtt RepoSuperagentAwsSignTestRole.Arn
+  TestApiEndpoint:
+    Value: !Sub 'https://${RepoSuperagentAwsSignTestApi}.execute-api.${AWS::Region}.amazonaws.com/prod/ping'

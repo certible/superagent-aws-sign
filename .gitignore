@@ -1,6 +1,9 @@
 # aws
 .aws-sam
 
+# env
+.env
+
 # Logs
 logs
 *.log

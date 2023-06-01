@@ -1,0 +1,9 @@
+version=0.1
+[default.global.parameters]
+stack_name = "test-package-superagent-aws-sign"
+[default.deploy.parameters]
+resolve_s3 = true
+s3_prefix = "test-package-superagent-aws-sign"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM CAPABILITY_NAMED_IAM"
+image_repositories = []
