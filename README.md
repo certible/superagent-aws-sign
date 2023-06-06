@@ -12,15 +12,15 @@ npm install aws-sign-request
 
 ## Usage
 
-Import the AwsSignRequest class and create an instance:
+Import the AwsSignRequest class and create a new instance. After building your request use the `use()` method from [Superagent](https://github.com/ladjs/superagent#plugins) to your instance to the request:
 
 ```javascript
 const AwsSignRequest = require('aws-sign-request');
 const signer = new AwsSignRequest();
 await signer.setCredentialsFromConfig('default')
 const response = await superagent
-  .get('api-gateway-url') // 'execute-api' is the default service of the class
-  .use(signer.add())
+  .get('api-gateway-url')
+  .use(signer.add()) // 'execute-api' is the default service of the class
 
 ```
 
@@ -88,22 +88,6 @@ To remove a previously assumed role and revert to using the original credentials
 
 ```javascript
 signer.removeRole();
-```
-
-## Signing Superagent Request
-
-After building your request use the `use()` method from [Superagent](https://github.com/ladjs/superagent#plugins) to add the signer to the request:
-
-```javascript
-await superagent
-  .get('api-gateway-url') // 'execute-api' is the default service of the class
-  .use(signer.add())
-```
-
-By default, the service name for the request is set to 'execute-api'. You can override this by passing a service name to the add method:
-
-```javascript
-const customEnd = signer.add('custom-service-name');
 ```
 
 ## Testing
