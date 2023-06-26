@@ -1,6 +1,9 @@
 const { fromIni } = require('@aws-sdk/credential-providers');
 const { STSClient, AssumeRoleCommand } = require('@aws-sdk/client-sts');
 const aws4 = require('aws4');
+/**
+ * @typedef { import("superagent").Plugin } Plugin
+ */
 
 /**
  * @description Helper utility to sign aws request, to invoke aws resources protected by IAM role.
@@ -86,7 +89,7 @@ class AwsSignRequest {
   /**
    * @description Create custom req.end which intercepts the request and signs it off with all the needed data, returns the original end function.
    * @param {string} [requestService] - The service name for the request. (optional)
-   * @returns {Function} - The signRequest function.
+   * @returns {Plugin} - The signRequest function.
    */
   add(requestService = undefined) {
     const service = requestService ?? this.defaultService;
