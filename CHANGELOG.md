@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.2](https://github.com/certible/superagent-aws-sign/compare/v0.0.1...v0.0.2) (2023-06-26)
+
+
+### Bug Fixes
+
+* :bug: fix npm command for linting ([25fafa7](https://github.com/certible/superagent-aws-sign/commit/25fafa7e0e42bfed3aea09b0797f97ad3b252074))
+* :package: ignore files for package generation ([931f416](https://github.com/certible/superagent-aws-sign/commit/931f416fd38dfdbbd0c6b43562a51306a833f047))
+
 ## 0.0.1 (2023-06-01)
 
 
