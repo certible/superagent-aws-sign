@@ -2,3 +2,8 @@ test
 samconfig.toml
 template.yaml
 jest.config.js
+.env
+.env.template
+.aws-sam
+.eslintrc
+.prettierrc
