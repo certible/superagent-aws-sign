@@ -7,7 +7,7 @@
 Install the package from npm:
 
 ```shell
-npm install aws-sign-request
+npm install superagent-aws-sign
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm install aws-sign-request
 Import the AwsSignRequest class and create a new instance. After building your request use the `use()` method from [Superagent](https://github.com/ladjs/superagent#plugins) to your instance to the request:
 
 ```javascript
-const AwsSignRequest = require('aws-sign-request');
+import AwsSignRequest = require('superagent-aws-sign');
 const signer = new AwsSignRequest();
 await signer.setCredentialsFromConfig('default')
 const response = await superagent
