@@ -24,6 +24,20 @@ const response = await superagent
 
 ```
 
+### TypeScript
+
+Package is written with JSDoc comments. For TypeScript users you may need to allow JavaScript in your `tsconfig.json` file.
+
+```json
+{
+  "compilerOptions": {
+    ...
+    "allowJs": true,
+    "maxNodeModuleJsDepth": 1,
+  }
+}
+```
+
 ## Setting AWS Region
 
 You can set the AWS region for the request using the setRegion method:
