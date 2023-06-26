@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "lint": "eslint --ignore-path .gitignore .",
-    "lint:fix": "npm run lint -- --fix",
+    "lint:fix": "npm run lint --fix",
     "release": "commit-and-tag-version",
     "test": "jest"
   },
