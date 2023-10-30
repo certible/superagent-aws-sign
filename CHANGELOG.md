@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.4](https://github.com/certible/superagent-aws-sign/compare/v0.0.3...v0.0.4) (2023-10-30)
+
+
+### Bug Fixes
+
+* :bug: force specify region ([9898c74](https://github.com/certible/superagent-aws-sign/commit/9898c7449399a2f8ccb852ab8343d021a97cb4a6))
+
 ## [0.0.3](https://github.com/certible/superagent-aws-sign/compare/v0.0.2...v0.0.3) (2023-10-30)
 
 ## [0.0.2](https://github.com/certible/superagent-aws-sign/compare/v0.0.1...v0.0.2) (2023-06-26)
