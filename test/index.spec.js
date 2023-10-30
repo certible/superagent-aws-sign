@@ -4,12 +4,14 @@ const superagent = require('superagent');
 require('dotenv').config();
 const ROLE_ARN = process.env.ROLE_ARN;
 const GATEWAY_URL = process.env.GATEWAY_URL;
+const PROFILE = process.env.PROFILE;
+const REGION = process.env.REGION ?? 'eu-central-1';
 
 describe('AwsSignRequest', () => {
   let signer = new AwsSignRequest();
 
   beforeEach(() => {
-    signer = new AwsSignRequest();
+    signer.setRegion(REGION);
   });
 
   it('should set and get credentials', () => {
@@ -24,8 +26,7 @@ describe('AwsSignRequest', () => {
   });
 
   it('should set and get credentials from config', async () => {
-    const profile = 'default';
-    const response = await signer.setCredentialsFromConfig(profile);
+    const response = await signer.setCredentialsFromConfig(PROFILE);
     expect(response).toBeDefined();
   });
 
