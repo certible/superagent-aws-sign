@@ -56,7 +56,9 @@ class AwsSignRequest {
    * @returns {Promise<void>}
    */
   async assumeRole(params) {
-    const client = new STSClient({ ...this.#credentials });
+    if(!this.#credentials) throw Error('No credentials set');
+    if(!this.region) throw Error('No region set');
+    const client = new STSClient({ credentials: this.#credentials, region: this.region });
     const command = new AssumeRoleCommand(params);
     try {
       const data = await client.send(command);
