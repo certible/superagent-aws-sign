@@ -8,6 +8,7 @@ export = AwsSignRequest;
 declare class AwsSignRequest {
     /**
      * @param {string} defaultService - Default service name for the request. (optional)
+     * @default 'execute-api'
      */
     constructor(defaultService?: string);
     /**
@@ -56,6 +57,13 @@ declare class AwsSignRequest {
      * @returns {Plugin} - The signRequest function.
      */
     add(requestService?: string): any;
+    /**
+     * @description Sign the request with the credentials.
+     * @param {object} request - The request object.
+     * @param {aws4.Credentials} [credentials] - The AWS credentials to use for signing. (optional)
+     * @returns {object} - The aws4 signed request object.
+     */
+    sign(request: object, credentials?: aws4.Credentials): object;
     #private;
 }
 declare namespace AwsSignRequest {

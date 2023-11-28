@@ -1,4 +1,4 @@
-const { fromIni } = require('@aws-sdk/credential-providers');
+const { fromIni, fromEnv } = require('@aws-sdk/credential-providers');
 const { STSClient, AssumeRoleCommand } = require('@aws-sdk/client-sts');
 const aws4 = require('aws4');
 /**
@@ -51,6 +51,16 @@ class AwsSignRequest {
     this.#credentials = await getShared();
     return this.#credentials;
   }
+  /**
+   * @description Get and set aws credentials from environment variables
+   * @returns {Promise<aws4.Credentials>} - The set AWS credentials.
+   */
+  async setCredentialsFromEnv() {
+    const env = fromEnv();
+    this.#credentials = await env();
+    return this.#credentials;
+  }
+
   /**
    * @description Create a session login.
    * @param {object} params - The parameters for assuming a role.
