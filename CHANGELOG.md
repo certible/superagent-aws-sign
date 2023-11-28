@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.2.0](https://github.com/certible/superagent-aws-sign/compare/v1.1.0...v1.2.0) (2023-11-28)
+
+
+### Features
+
+* :sparkles: add from env method to class ([e9607f9](https://github.com/certible/superagent-aws-sign/commit/e9607f9ea4b4bd505ba334dfa8c1f72fcc0dae08))
+
 ## [1.1.0](https://github.com/certible/superagent-aws-sign/compare/v1.0.1...v1.1.0) (2023-11-28)
 
 
