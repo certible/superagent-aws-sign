@@ -7,3 +7,4 @@ jest.config.js
 .aws-sam
 .eslintrc
 .prettierrc
+.github
