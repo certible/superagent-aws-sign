@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.1.0](https://github.com/certible/superagent-aws-sign/compare/v1.0.1...v1.1.0) (2023-11-28)
+
+
+### Features
+
+* :sparkles: add a simple aws 4 sign method ([bf114b2](https://github.com/certible/superagent-aws-sign/commit/bf114b2f5050e81a2ef1d9ad3f6e8de3ce625f84))
+
 ## [1.0.1](https://github.com/certible/superagent-aws-sign/compare/v1.0.0...v1.0.1) (2023-11-28)
 
 
