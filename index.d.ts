@@ -36,6 +36,11 @@ declare class AwsSignRequest {
      */
     setCredentialsFromConfig(profile: string): Promise<aws4.Credentials>;
     /**
+     * @description Get and set aws credentials from environment variables
+     * @returns {Promise<aws4.Credentials>} - The set AWS credentials.
+     */
+    setCredentialsFromEnv(): Promise<aws4.Credentials>;
+    /**
      * @description Create a session login.
      * @param {object} params - The parameters for assuming a role.
      * @returns {Promise<void>}
