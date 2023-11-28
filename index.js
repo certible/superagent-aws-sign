@@ -27,6 +27,7 @@ class AwsSignRequest {
   session;
   /**
    * @param {string} defaultService - Default service name for the request. (optional)
+   * @default 'execute-api'
    */
   constructor(defaultService = 'execute-api') {
     this.defaultService = defaultService;
@@ -98,17 +99,14 @@ class AwsSignRequest {
    */
   add(requestService = undefined) {
     const service = requestService ?? this.defaultService;
-    const cred = this.session ?? this.#credentials;
     const region = this.region;
+    const sign = this.sign;
+    const cred = this.session ?? this.#credentials;
     return function signRequest(req) {
       req._originalEnd = req.end;
       // Replace end function, which is called after .send() to get all the headers before the actual call
       req.end = function (callback) {
-        // If using assumeRole() the credentials will also hold a session token
         const headers = req.header;
-        if (cred.sessionToken) {
-          headers['X-Amz-Security-Token'] = cred.sessionToken;
-        }
 
         const body =
           req.header['Content-Type'] === 'application/json'
@@ -132,7 +130,7 @@ class AwsSignRequest {
           headers,
         };
 
-        const signedOptions = aws4.sign(request, cred);
+        const signedOptions = sign(request, cred);
         // Add signed header which actually does the IAM role check
         req.header = signedOptions.headers;
         // set the original end function back and end the call
@@ -144,6 +142,21 @@ class AwsSignRequest {
 
       return req;
     };
+  }
+
+  /**
+   * @description Sign the request with the credentials.
+   * @param {object} request - The request object.
+   * @param {aws4.Credentials} [credentials] - The AWS credentials to use for signing. (optional)
+   * @returns {object} - The aws4 signed request object.
+   */
+  sign(request, credentials = undefined) {
+    const cred = credentials ?? this.session ?? this.#credentials;
+    // If using assumeRole() the credentials will also hold a session token
+    if (cred.sessionToken) {
+      request.headers['X-Amz-Security-Token'] = cred.sessionToken;
+    }
+    return aws4.sign(request, cred);
   }
 }
 
