@@ -1,6 +1,6 @@
 {
   "name": "@certible/superagent-aws-sign",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Superagent plugin to sign requests using AWS Signature Version 4",
   "author": "Certible <oberreiter@certible.com>",
   "license": "MIT",
@@ -20,7 +20,8 @@
   "scripts": {
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint --fix",
-    "release": "commit-and-tag-version",
+    "release": "npm run types && commit-and-tag-version",
+    "types": "tsc index.js --declaration --allowJs --emitDeclarationOnly --declarationMap --outDir .",
     "test": "jest"
   },
   "dependencies": {
@@ -36,6 +37,7 @@
     "eslint-plugin-prettier": "5.0.1",
     "jest": "^29.5.0",
     "prettier": "3.0.3",
-    "superagent": "^8.0.9"
+    "superagent": "^8.0.9",
+    "typescript": "5.3.2"
   }
 }
