@@ -20,9 +20,14 @@
   "scripts": {
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint --fix",
-    "release": "npm run types && commit-and-tag-version",
+    "release": "commit-and-tag-version",
     "types": "tsc index.js --declaration --allowJs --emitDeclarationOnly --declarationMap --outDir .",
     "test": "jest"
+  },
+  "commit-and-tag-version": {
+    "scripts": {
+      "prerelease": "npm run types"
+    }
   },
   "dependencies": {
     "@aws-sdk/client-sts": "^3.359.0",

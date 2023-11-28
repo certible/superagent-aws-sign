@@ -1,0 +1,14 @@
+{
+    "include": [
+        "index.js",
+    ],
+    "compilerOptions": {
+        "allowJs": true,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "outDir": ".",
+        "declarationMap": true
+    }
+}
+
+npx -p typescript tsc index.js --declaration --allowJs --emitDeclarationOnly --declarationMap --outDir .
