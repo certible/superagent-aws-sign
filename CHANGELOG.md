@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.5](https://github.com/certible/superagent-aws-sign/compare/v0.0.4...v0.0.5) (2023-11-28)
+
+
+### Features
+
+* :sparkles: add workflow for npm publish ([977583f](https://github.com/certible/superagent-aws-sign/commit/977583fa380c505706a9db15b74857421f6ce797))
+
+
+### Bug Fixes
+
+* :bug: make package public available ([3a3817e](https://github.com/certible/superagent-aws-sign/commit/3a3817e77e14d74b3215805e8d3b81bddfe9460b))
+* :bug: remove profile ([437572d](https://github.com/certible/superagent-aws-sign/commit/437572d0cf76dc9b96edc653da159655774e76b4))
+
 ## [0.0.4](https://github.com/certible/superagent-aws-sign/compare/v0.0.3...v0.0.4) (2023-10-30)
 
 
