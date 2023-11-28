@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.0.1](https://github.com/certible/superagent-aws-sign/compare/v1.0.0...v1.0.1) (2023-11-28)
+
+
+### Bug Fixes
+
+* :fire: remove unused tsconfig ([425ac47](https://github.com/certible/superagent-aws-sign/commit/425ac47eee3ae4816164f20b406806c850618c11))
+
 ## [1.0.0](https://github.com/certible/superagent-aws-sign/compare/v0.0.8...v1.0.0) (2023-11-28)
 
 ## [0.0.8](https://github.com/certible/superagent-aws-sign/compare/v0.0.7...v0.0.8) (2023-11-28)
