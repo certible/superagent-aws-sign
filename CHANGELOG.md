@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.2.1](https://github.com/certible/superagent-aws-sign/compare/v1.2.0...v1.2.1) (2023-12-11)
+
+
+### Bug Fixes
+
+* :label: ([c1bc5cd](https://github.com/certible/superagent-aws-sign/commit/c1bc5cdb0995b78b4c1d95c6156ff685c2d7097e))
+
 ## [1.2.0](https://github.com/certible/superagent-aws-sign/compare/v1.1.0...v1.2.0) (2023-11-28)
 
 
