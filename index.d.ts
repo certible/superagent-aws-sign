@@ -61,7 +61,7 @@ declare class AwsSignRequest {
      * @param {string} [requestService] - The service name for the request. (optional)
      * @returns {Plugin} - The signRequest function.
      */
-    add(requestService?: string): any;
+    add(requestService?: string): Plugin;
     /**
      * @description Sign the request with the credentials.
      * @param {object} request - The request object.
