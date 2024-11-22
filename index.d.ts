@@ -8,7 +8,7 @@ export = AwsSignRequest;
 declare class AwsSignRequest {
     /**
      * @param {string} defaultService - Default service name for the request. (optional)
-     * @default 'execute-api'
+     * @default
      */
     constructor(defaultService?: string);
     /**

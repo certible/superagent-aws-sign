@@ -1,5 +1,5 @@
-const { fromIni, fromEnv } = require('@aws-sdk/credential-providers');
 const { STSClient, AssumeRoleCommand } = require('@aws-sdk/client-sts');
+const { fromIni, fromEnv } = require('@aws-sdk/credential-providers');
 const aws4 = require('aws4');
 /**
  * @typedef { import("superagent").Plugin } Plugin
@@ -27,11 +27,12 @@ class AwsSignRequest {
   session;
   /**
    * @param {string} defaultService - Default service name for the request. (optional)
-   * @default 'execute-api'
+   * @default
    */
   constructor(defaultService = 'execute-api') {
     this.defaultService = defaultService;
   }
+
   /**
    * @description Set aws credentials manually, e.g., env
    * @param {aws4.Credentials} credentials - The AWS credentials to set.
@@ -41,6 +42,7 @@ class AwsSignRequest {
     this.#credentials = credentials;
     return this.#credentials;
   }
+
   /**
    * @description Get and set aws credentials from local ~.aws/credentials
    * @param {string} profile - The profile name in the credentials file.
@@ -51,6 +53,7 @@ class AwsSignRequest {
     this.#credentials = await getShared();
     return this.#credentials;
   }
+
   /**
    * @description Get and set aws credentials from environment variables
    * @returns {Promise<aws4.Credentials>} - The set AWS credentials.
@@ -67,8 +70,10 @@ class AwsSignRequest {
    * @returns {Promise<void>}
    */
   async assumeRole(params) {
-    if (!this.#credentials) throw Error('No credentials set');
-    if (!this.region) throw Error('No region set');
+    if (!this.#credentials)
+      throw new Error('No credentials set');
+    if (!this.region)
+      throw new Error('No region set');
     const client = new STSClient({
       credentials: this.#credentials,
       region: this.region,
@@ -76,23 +81,27 @@ class AwsSignRequest {
     const command = new AssumeRoleCommand(params);
     try {
       const data = await client.send(command);
-      if (!data.Credentials) throw Error('No credentials received');
+      if (!data.Credentials)
+        throw new Error('No credentials received');
       this.session = {
         accessKeyId: data.Credentials.AccessKeyId,
         secretAccessKey: data.Credentials.SecretAccessKey,
         sessionToken: data.Credentials.SessionToken,
       };
-    } catch (error) {
+    }
+    catch (error) {
       console.error(error);
-      throw Error('Could not create session credentials');
+      throw new Error('Could not create session credentials');
     }
   }
+
   /**
    * @description Remove possible previous set session.
    */
   removeRole() {
     this.session = null;
   }
+
   /**
    * @description Set aws region.
    * @param {string} region - The AWS region to set.
@@ -102,6 +111,7 @@ class AwsSignRequest {
     this.region = region;
     return this.region;
   }
+
   /**
    * @description Create custom req.end which intercepts the request and signs it off with all the needed data, returns the original end function.
    * @param {string} [requestService] - The service name for the request. (optional)
@@ -118,8 +128,8 @@ class AwsSignRequest {
       req.end = function (callback) {
         const headers = req.header;
 
-        const body =
-          req.header['Content-Type'] === 'application/json'
+        const body
+          = req.header['Content-Type'] === 'application/json'
             ? JSON.stringify(req._data)
             : req._formData;
 
