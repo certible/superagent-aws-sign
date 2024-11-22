@@ -1,14 +1,16 @@
-const AwsSignRequest = require('../index.js');
+const { describe, it, expect, beforeEach } = require('@jest/globals');
 const superagent = require('superagent');
+const AwsSignRequest = require('../index.js');
 
 require('dotenv').config();
+
 const ROLE_ARN = process.env.ROLE_ARN;
 const GATEWAY_URL = process.env.GATEWAY_URL;
 const PROFILE = process.env.PROFILE;
 const REGION = process.env.REGION ?? 'eu-central-1';
 
-describe('AwsSignRequest', () => {
-  let signer = new AwsSignRequest();
+describe('awsSignRequest', () => {
+  const signer = new AwsSignRequest();
 
   beforeEach(() => {
     signer.setRegion(REGION);

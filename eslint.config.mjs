@@ -1,27 +1,12 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
-import jest from "eslint-plugin-jest";
-import stylisticJs from '@stylistic/eslint-plugin-js'
+import antfu from '@antfu/eslint-config';
 
-export default [
- {
-    files: ['test/**'],
-    ...jest.configs['flat/recommended'],
+export default antfu(
+  {
+    ignores: ['*.d.ts'],
+  },
+  {
     rules: {
-      ...jest.configs['flat/recommended'].rules,
-      'jest/prefer-expect-assertions': 'off',
+      'style/semi': ['error', 'always'],
     },
   },
-  {
-    files: ["**/*.js"], 
-    languageOptions: {sourceType: "commonjs"},
-  },
-  {
-    languageOptions: { globals: globals.node },
-    plugins: {
-      '@stylistic/js': stylisticJs
-    }
-  },
-  pluginJs.configs.recommended,
-  stylisticJs.configs['recommended-flat'],
-];
+);

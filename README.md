@@ -17,11 +17,10 @@ Import the AwsSignRequest class and create a new instance. After building your r
 ```javascript
 const AwsSignRequest = require('@certible/superagent-aws-sign');
 const signer = new AwsSignRequest();
-await signer.setCredentialsFromConfig('default')
+await signer.setCredentialsFromConfig('default');
 const response = await superagent
   .get('api-gateway-url')
-  .use(signer.add()) // 'execute-api' is the default service of the class
-
+  .use(signer.add()); // 'execute-api' is the default service of the class
 ```
 
 ### TypeScript
@@ -31,9 +30,8 @@ Package is written with JSDoc comments. For TypeScript users you may need to all
 ```json
 {
   "compilerOptions": {
-    ...
     "allowJs": true,
-    "maxNodeModuleJsDepth": 1,
+    "maxNodeModuleJsDepth": 1
   }
 }
 ```
@@ -74,6 +72,7 @@ signer.setCredentialsFromConfig(profile)
   })
   .catch((error) => {
     // Error loading credentials
+    console.error(error);
   });
 ```
 
@@ -93,6 +92,7 @@ signer.assumeRole(params)
   })
   .catch((error) => {
     // Error assuming role
+    console.error(error);
   });
 ```
 
