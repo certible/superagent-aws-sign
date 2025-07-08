@@ -1,7 +1,7 @@
 {
   "name": "@certible/superagent-aws-sign",
   "type": "module",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "description": "Superagent plugin to sign requests using AWS Signature Version 4",
   "author": "Certible <oberreiter@certible.com>",
   "license": "MIT",

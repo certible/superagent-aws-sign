@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.0.0](https://github.com/certible/superagent-aws-sign/compare/v2.1.1...v3.0.0) (2025-07-08)
+
+
+### Features
+
+* :sparkles: support cjs and mjs ([4034dbe](https://github.com/certible/superagent-aws-sign/commit/4034dbefa62479934f8748e2665cc74d0211d79e))
+
 ## [2.1.1](https://github.com/certible/superagent-aws-sign/compare/v2.1.0...v2.1.1) (2025-06-02)
 
 ## [2.1.0](https://github.com/certible/superagent-aws-sign/compare/v2.0.0...v2.1.0) (2024-11-22)
