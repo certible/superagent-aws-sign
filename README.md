@@ -16,6 +16,7 @@ Import the AwsSignRequest class and create a new instance. After building your r
 
 ```javascript
 const AwsSignRequest = require('@certible/superagent-aws-sign');
+
 const signer = new AwsSignRequest();
 await signer.setCredentialsFromConfig('default');
 const response = await superagent
