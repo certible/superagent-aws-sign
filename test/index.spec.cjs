@@ -1,6 +1,6 @@
 const { describe, it, expect, beforeEach } = require('@jest/globals');
 const superagent = require('superagent');
-const AwsSignRequest = require('../index.js');
+const AwsSignRequest = require('../index.cjs');
 
 require('dotenv').config();
 

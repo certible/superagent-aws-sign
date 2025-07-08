@@ -75,4 +75,3 @@ declare namespace AwsSignRequest {
     export { Plugin };
 }
 type Plugin = any;
-//# sourceMappingURL=index.d.ts.map

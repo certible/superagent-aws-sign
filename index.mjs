@@ -1,6 +1,6 @@
-const { STSClient, AssumeRoleCommand } = require('@aws-sdk/client-sts');
-const { fromIni, fromEnv } = require('@aws-sdk/credential-providers');
-const aws4 = require('aws4');
+import { AssumeRoleCommand, STSClient } from '@aws-sdk/client-sts';
+import { fromEnv, fromIni } from '@aws-sdk/credential-providers';
+import aws4 from 'aws4';
 /**
  * @typedef { import("superagent").Plugin } Plugin
  */
@@ -180,4 +180,4 @@ class AwsSignRequest {
   }
 }
 
-module.exports = AwsSignRequest;
+export default AwsSignRequest;

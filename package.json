@@ -1,5 +1,6 @@
 {
   "name": "@certible/superagent-aws-sign",
+  "type": "module",
   "version": "2.1.1",
   "description": "Superagent plugin to sign requests using AWS Signature Version 4",
   "author": "Certible <oberreiter@certible.com>",
@@ -16,17 +17,35 @@
     "aws",
     "request"
   ],
-  "main": "index.js",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.cjs",
+      "default": "./index.mjs"
+    }
+  },
+  "main": "index.cjs",
+  "module": "index.mjs",
+  "files": [
+    "index.cjs",
+    "index.d.ts",
+    "index.d.ts.map",
+    "index.mjs"
+  ],
   "scripts": {
+    "build": "npm run build:cjs && npm run build:esm && npm run types",
+    "build:cjs": "cp src/index.js index.cjs",
+    "build:esm": "node scripts/build-esm.cjs",
     "lint": "eslint .",
-    "lint:fix": "npm run lint --fix",
+    "lint:fix": "eslint . --fix",
     "release": "commit-and-tag-version",
-    "types": "tsc index.js --declaration --allowJs --emitDeclarationOnly --declarationMap --outDir .",
+    "types": "tsc src/index.js --declaration --allowJs --emitDeclarationOnly --outDir .",
     "test": "jest"
   },
   "commit-and-tag-version": {
     "scripts": {
-      "prerelease": "npm run types"
+      "prerelease": "npm run build"
     }
   },
   "dependencies": {

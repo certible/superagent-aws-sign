@@ -14,8 +14,23 @@ npm install @certible/superagent-aws-sign
 
 Import the AwsSignRequest class and create a new instance. After building your request use the `use()` method from [Superagent](https://github.com/ladjs/superagent#plugins) to your instance to the request:
 
+### CommonJS
+
 ```javascript
 const AwsSignRequest = require('@certible/superagent-aws-sign');
+
+const signer = new AwsSignRequest();
+await signer.setCredentialsFromConfig('default');
+const response = await superagent
+  .get('api-gateway-url')
+  .use(signer.add()); // 'execute-api' is the default service of the class
+```
+
+### ES Modules
+
+```javascript
+import AwsSignRequest from '@certible/superagent-aws-sign';
+import superagent from 'superagent';
 
 const signer = new AwsSignRequest();
 await signer.setCredentialsFromConfig('default');
