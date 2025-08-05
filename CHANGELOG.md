@@ -1,9 +1,6 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
-
 ## [3.0.0](https://github.com/certible/superagent-aws-sign/compare/v2.1.1...v3.0.0) (2025-07-08)
-
 
 ### Features
 
@@ -13,13 +10,11 @@ All notable changes to this project will be documented in this file. See [commit
 
 ## [2.1.0](https://github.com/certible/superagent-aws-sign/compare/v2.0.0...v2.1.0) (2024-11-22)
 
-
 ### Features
 
 * :rotating_light: move to antfu linter/styler ([44334fb](https://github.com/certible/superagent-aws-sign/commit/44334fbca2ddf8e17eea89956821932acbc0a4f9))
 
 ## [2.0.0](https://github.com/certible/superagent-aws-sign/compare/v1.2.1...v2.0.0) (2024-09-27)
-
 
 ### Features
 
@@ -27,13 +22,11 @@ All notable changes to this project will be documented in this file. See [commit
 
 ## [1.2.1](https://github.com/certible/superagent-aws-sign/compare/v1.2.0...v1.2.1) (2023-12-11)
 
-
 ### Bug Fixes
 
 * :label: ([c1bc5cd](https://github.com/certible/superagent-aws-sign/commit/c1bc5cdb0995b78b4c1d95c6156ff685c2d7097e))
 
 ## [1.2.0](https://github.com/certible/superagent-aws-sign/compare/v1.1.0...v1.2.0) (2023-11-28)
-
 
 ### Features
 
@@ -41,13 +34,11 @@ All notable changes to this project will be documented in this file. See [commit
 
 ## [1.1.0](https://github.com/certible/superagent-aws-sign/compare/v1.0.1...v1.1.0) (2023-11-28)
 
-
 ### Features
 
 * :sparkles: add a simple aws 4 sign method ([bf114b2](https://github.com/certible/superagent-aws-sign/commit/bf114b2f5050e81a2ef1d9ad3f6e8de3ce625f84))
 
 ## [1.0.1](https://github.com/certible/superagent-aws-sign/compare/v1.0.0...v1.0.1) (2023-11-28)
-
 
 ### Bug Fixes
 
@@ -56,7 +47,6 @@ All notable changes to this project will be documented in this file. See [commit
 ## [1.0.0](https://github.com/certible/superagent-aws-sign/compare/v0.0.8...v1.0.0) (2023-11-28)
 
 ## [0.0.8](https://github.com/certible/superagent-aws-sign/compare/v0.0.7...v0.0.8) (2023-11-28)
-
 
 ### Features
 
@@ -68,11 +58,9 @@ All notable changes to this project will be documented in this file. See [commit
 
 ## [0.0.5](https://github.com/certible/superagent-aws-sign/compare/v0.0.4...v0.0.5) (2023-11-28)
 
-
 ### Features
 
 * :sparkles: add workflow for npm publish ([977583f](https://github.com/certible/superagent-aws-sign/commit/977583fa380c505706a9db15b74857421f6ce797))
-
 
 ### Bug Fixes
 
@@ -80,7 +68,6 @@ All notable changes to this project will be documented in this file. See [commit
 * :bug: remove profile ([437572d](https://github.com/certible/superagent-aws-sign/commit/437572d0cf76dc9b96edc653da159655774e76b4))
 
 ## [0.0.4](https://github.com/certible/superagent-aws-sign/compare/v0.0.3...v0.0.4) (2023-10-30)
-
 
 ### Bug Fixes
 
@@ -90,14 +77,12 @@ All notable changes to this project will be documented in this file. See [commit
 
 ## [0.0.2](https://github.com/certible/superagent-aws-sign/compare/v0.0.1...v0.0.2) (2023-06-26)
 
-
 ### Bug Fixes
 
 * :bug: fix npm command for linting ([25fafa7](https://github.com/certible/superagent-aws-sign/commit/25fafa7e0e42bfed3aea09b0797f97ad3b252074))
 * :package: ignore files for package generation ([931f416](https://github.com/certible/superagent-aws-sign/commit/931f416fd38dfdbbd0c6b43562a51306a833f047))
 
 ## 0.0.1 (2023-06-01)
-
 
 ### Features
 
