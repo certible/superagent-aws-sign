@@ -52,3 +52,5 @@ dist
 
 # Mac OS
 .DS_Store
+
+.release-please-manifest.json
