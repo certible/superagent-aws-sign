@@ -39,14 +39,9 @@
     "build:esm": "node scripts/build-esm.cjs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "release": "commit-and-tag-version",
     "types": "tsc src/index.js --declaration --allowJs --emitDeclarationOnly --outDir .",
-    "test": "jest"
-  },
-  "commit-and-tag-version": {
-    "scripts": {
-      "prerelease": "npm run build"
-    }
+    "test": "jest",
+    "prepare": "husky"
   },
   "dependencies": {
     "@aws-sdk/client-sts": "^3.359.0",
@@ -55,10 +50,10 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.13.2",
-    "commit-and-tag-version": "^12.0.0",
     "dotenv": "17.1.0",
     "eslint": "^9.15.0",
     "globals": "^16.2.0",
+    "husky": "9.1.7",
     "jest": "30.0.4",
     "superagent": "^10.1.0",
     "typescript": "^5.3.2"
