@@ -136,3 +136,7 @@ This project is based on [npmjs.com/package/superagent-aws-signed-request](https
 ## License
 
 This project is licensed under the MIT License.
+
+## About
+
+This package is developed and maintained by **[Certible](https://certible.com)**.
