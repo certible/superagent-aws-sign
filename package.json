@@ -29,17 +29,15 @@
   "module": "index.mjs",
   "files": [
     "index.cjs",
+    "index.d.cts",
     "index.d.ts",
     "index.d.ts.map",
     "index.mjs"
   ],
   "scripts": {
-    "build": "npm run build:cjs && npm run build:esm && npm run types",
-    "build:cjs": "cp src/index.js index.cjs",
-    "build:esm": "node scripts/build-esm.cjs",
+    "build": "tsup",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "types": "tsc src/index.js --declaration --allowJs --emitDeclarationOnly --outDir .",
     "jest:vm": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
     "test": "npm run lint && npm run jest:vm",
     "prepare": "husky"
@@ -57,6 +55,7 @@
     "husky": "^9.1.7",
     "jest": "^30.0.4",
     "superagent": "^10.1.0",
+    "tsup": "8.5.1",
     "typescript": "^5.3.2"
   }
 }

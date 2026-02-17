@@ -1,6 +1,7 @@
-import { AssumeRoleCommand, STSClient } from '@aws-sdk/client-sts';
-import { fromEnv, fromIni } from '@aws-sdk/credential-providers';
+import { STSClient, AssumeRoleCommand } from '@aws-sdk/client-sts';
+import { fromIni, fromEnv } from '@aws-sdk/credential-providers';
 import aws4 from 'aws4';
+
 /**
  * @typedef { import("superagent").Plugin } Plugin
  */
@@ -180,4 +181,4 @@ class AwsSignRequest {
   }
 }
 
-export default AwsSignRequest;
+export = AwsSignRequest;
