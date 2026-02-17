@@ -2,7 +2,7 @@ import antfu from '@antfu/eslint-config';
 
 export default antfu(
   {
-    ignores: ['*.d.ts'],
+    ignores: ['*.d.ts', '*.d.cts', 'index.cjs', 'index.mjs'],
   },
   {
     rules: {

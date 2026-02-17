@@ -1,4 +1,5 @@
-export = AwsSignRequest;
+export default AwsSignRequest;
+export type Plugin = any;
 /**
  * @typedef { import("superagent").Plugin } Plugin
  */
@@ -71,7 +72,3 @@ declare class AwsSignRequest {
     sign(request: object, credentials?: aws4.Credentials): object;
     #private;
 }
-declare namespace AwsSignRequest {
-    export { Plugin };
-}
-type Plugin = any;
