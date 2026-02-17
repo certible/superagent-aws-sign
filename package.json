@@ -29,14 +29,14 @@
   "module": "index.mjs",
   "files": [
     "index.cjs",
-    "index.d.cts",
     "index.d.ts",
     "index.mjs"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && npm run types",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "types": "tsc src/index.js --declaration --allowJs --emitDeclarationOnly --outDir .",
     "jest:vm": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
     "test": "npm run lint && npm run jest:vm",
     "prepare": "husky"
