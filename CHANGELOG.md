@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/certible/superagent-aws-sign/compare/v3.0.0...v3.0.1) (2026-02-17)
+
+
+### Bug Fixes
+
+* :bug: module build with correct export ([#30](https://github.com/certible/superagent-aws-sign/issues/30)) ([85902fd](https://github.com/certible/superagent-aws-sign/commit/85902fdcc7a7917358349cc0f286b0d9d01ee076))
+
 ## [3.0.0](https://github.com/certible/superagent-aws-sign/compare/v2.1.1...v3.0.0) (2025-07-08)
 
 ### Features
