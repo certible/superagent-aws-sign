@@ -31,7 +31,6 @@
     "index.cjs",
     "index.d.cts",
     "index.d.ts",
-    "index.d.ts.map",
     "index.mjs"
   ],
   "scripts": {
