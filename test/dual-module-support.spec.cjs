@@ -13,6 +13,7 @@ describe('Dual Module Support', () => {
     expect(AwsSignRequestCJS).toBeDefined();
     expect(typeof AwsSignRequestCJS).toBe('function');
     expect(AwsSignRequestCJS.name).toBe('AwsSignRequest');
+    expect(AwsSignRequestCJS.default).toBe(AwsSignRequestCJS);
 
     const instance = new AwsSignRequestCJS();
     expect(instance).toBeInstanceOf(AwsSignRequestCJS);
@@ -82,8 +83,7 @@ process.exit(0);
       // Clean up temp file
       try {
         fs.unlinkSync(testFile);
-      }
-      catch {
+      } catch {
         // Ignore cleanup errors
       }
 
@@ -97,10 +97,14 @@ process.exit(0);
           6: 'setCredentials method is not a function',
         };
 
-        const errorMessage = errorMessages[code] || `Unknown error (exit code: ${code})`;
-        done(new Error(`ES Module test failed: ${errorMessage}. stderr: ${stderr}`));
-      }
-      else {
+        const errorMessage =
+          errorMessages[code] || `Unknown error (exit code: ${code})`;
+        done(
+          new Error(
+            `ES Module test failed: ${errorMessage}. stderr: ${stderr}`,
+          ),
+        );
+      } else {
         expect(stdout).toContain('ES Module test passed');
         done();
       }
@@ -109,8 +113,7 @@ process.exit(0);
     child.on('error', (err) => {
       try {
         fs.unlinkSync(testFile);
-      }
-      catch {
+      } catch {
         // Ignore cleanup errors
       }
       done(err);
@@ -118,7 +121,9 @@ process.exit(0);
   }, 10000);
 
   it('should have proper package.json exports configuration', () => {
-    const packageJson = JSON.parse(fs.readFileSync(path.join(projectRoot, 'package.json'), 'utf8'));
+    const packageJson = JSON.parse(
+      fs.readFileSync(path.join(projectRoot, 'package.json'), 'utf8'),
+    );
 
     expect(packageJson.type).toBe('module');
     expect(packageJson.main).toBe('index.cjs');

@@ -70,10 +70,8 @@ class AwsSignRequest {
    * @returns {Promise<void>}
    */
   async assumeRole(params) {
-    if (!this.#credentials)
-      throw new Error('No credentials set');
-    if (!this.region)
-      throw new Error('No region set');
+    if (!this.#credentials) throw new Error('No credentials set');
+    if (!this.region) throw new Error('No region set');
     const client = new STSClient({
       credentials: this.#credentials,
       region: this.region,
@@ -81,17 +79,15 @@ class AwsSignRequest {
     const command = new AssumeRoleCommand(params);
     try {
       const data = await client.send(command);
-      if (!data.Credentials)
-        throw new Error('No credentials received');
+      if (!data.Credentials) throw new Error('No credentials received');
       this.session = {
         accessKeyId: data.Credentials.AccessKeyId,
         secretAccessKey: data.Credentials.SecretAccessKey,
         sessionToken: data.Credentials.SessionToken,
       };
-    }
-    catch (error) {
+    } catch (error) {
       console.error(error);
-      throw new Error('Could not create session credentials');
+      throw new Error('Could not create session credentials', { cause: error });
     }
   }
 
@@ -128,8 +124,8 @@ class AwsSignRequest {
       req.end = function (callback) {
         const headers = req.header;
 
-        const body
-          = req.header['Content-Type'] === 'application/json'
+        const body =
+          req.header['Content-Type'] === 'application/json'
             ? JSON.stringify(req._data)
             : req._formData;
 

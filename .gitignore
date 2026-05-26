@@ -34,10 +34,11 @@ build/Release
 node_modules
 jspm_packages
 
-# Optional npm cache directory
+# Optional package manager cache directories
 .npm
+.pnpm-store
 
-# Optional eslint cache
+# Optional linter cache
 .eslintcache
 
 # Optional REPL history

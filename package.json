@@ -1,22 +1,29 @@
 {
   "name": "@certible/superagent-aws-sign",
-  "type": "module",
   "version": "3.0.1",
   "description": "Superagent plugin to sign requests using AWS Signature Version 4",
-  "author": "Certible <oberreiter@certible.com>",
+  "keywords": [
+    "aws",
+    "request",
+    "superagent"
+  ],
+  "bugs": {
+    "url": "https://github.com/certible/superagent-aws-sign/issues"
+  },
   "license": "MIT",
+  "author": "Certible <oberreiter@certible.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/certible/superagent-aws-sign.git"
   },
-  "bugs": {
-    "url": "https://github.com/certible/superagent-aws-sign/issues"
-  },
-  "keywords": [
-    "superagent",
-    "aws",
-    "request"
+  "files": [
+    "index.cjs",
+    "index.d.ts",
+    "index.mjs"
   ],
+  "type": "module",
+  "main": "index.cjs",
+  "module": "index.mjs",
   "exports": {
     ".": {
       "types": "./index.d.ts",
@@ -25,20 +32,12 @@
       "default": "./index.mjs"
     }
   },
-  "main": "index.cjs",
-  "module": "index.mjs",
-  "files": [
-    "index.cjs",
-    "index.d.ts",
-    "index.mjs"
-  ],
   "scripts": {
-    "build": "tsup && npm run types",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "types": "tsc src/index.js --declaration --allowJs --emitDeclarationOnly --outDir .",
+    "build": "tsdown",
+    "lint": "oxlint . && oxfmt --check .",
+    "lint:fix": "oxlint . --fix && oxfmt --write .",
     "jest:vm": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
-    "test": "npm run lint && npm run jest:vm",
+    "test": "pnpm run lint && pnpm run jest:vm",
     "prepare": "husky"
   },
   "dependencies": {
@@ -47,14 +46,18 @@
     "aws4": "^1.12.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "6.1.0",
+    "@types/node": "^25.9.1",
     "dotenv": "^17.1.0",
-    "eslint": "^9.15.0",
-    "globals": "^16.2.0",
     "husky": "^9.1.7",
     "jest": "^30.0.4",
+    "oxfmt": "^0.52.0",
+    "oxlint": "^1.67.0",
     "superagent": "^10.1.0",
-    "tsup": "^8.5.1",
+    "tsdown": "^0.22.0",
     "typescript": "^5.3.2"
-  }
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@11.3.0"
 }

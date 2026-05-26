@@ -1,3 +1,4 @@
 #!/usr/bin/env sh
-npm run build
+pnpm run lint
+pnpm run build
 git add index.cjs index.mjs index.d.ts
