@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0](https://github.com/certible/superagent-aws-sign/compare/v3.0.1...v4.0.0) (2026-05-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* package now requires Node >=22 and pnpm. Build tooling moves from tsup to tsdown, and lint/format tooling moves from ESLint/Antfu to oxlint/oxfmt.
+
+### Features
+
+* modernize package tooling ([0f193ce](https://github.com/certible/superagent-aws-sign/commit/0f193ce0d65006c51c9af82496b233944efc33af))
+
 ## [3.0.1](https://github.com/certible/superagent-aws-sign/compare/v3.0.0...v3.0.1) (2026-02-17)
 
 
