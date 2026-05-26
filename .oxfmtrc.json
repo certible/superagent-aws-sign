@@ -1,0 +1,26 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "insertFinalNewline": true,
+  "sortImports": true,
+  "sortPackageJson": true,
+  "ignorePatterns": [
+    "dist/**",
+    "coverage/**",
+    ".aws-sam/**",
+    "index.cjs",
+    "index.d.ts",
+    "index.mjs",
+    "pnpm-lock.yaml",
+    "CHANGELOG.md",
+    "README.md"
+  ]
+}

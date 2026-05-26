@@ -7,7 +7,7 @@
 Install the package from npm:
 
 ```shell
-npm install @certible/superagent-aws-sign
+pnpm add @certible/superagent-aws-sign
 ```
 
 ## Usage
