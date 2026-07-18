@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.1](https://github.com/certible/superagent-aws-sign/compare/v4.0.0...v4.0.1) (2026-07-18)
+
+
+### Bug Fixes
+
+* **types:** import aws4 credentials ([0e00160](https://github.com/certible/superagent-aws-sign/commit/0e00160430899cf4a11e93a99ee9f08af0436aef))
+
 ## [4.0.0](https://github.com/certible/superagent-aws-sign/compare/v3.0.1...v4.0.0) (2026-05-26)
 
 
