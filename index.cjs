@@ -25,6 +25,7 @@ let _aws_sdk_credential_providers = require("@aws-sdk/credential-providers");
 let aws4 = require("aws4");
 aws4 = __toESM(aws4, 1);
 //#region src/index.js
+/** @import { Credentials } from 'aws4' */
 /**
 * @typedef { import("superagent").Plugin } Plugin
 */
@@ -57,8 +58,8 @@ var AwsSignRequest = class {
 	}
 	/**
 	* @description Set aws credentials manually, e.g., env
-	* @param {aws4.Credentials} credentials - The AWS credentials to set.
-	* @returns {aws4.Credentials} - The set AWS credentials.
+	* @param {Credentials} credentials - The AWS credentials to set.
+	* @returns {Credentials} - The set AWS credentials.
 	*/
 	setCredentials(credentials) {
 		this.#credentials = credentials;
@@ -67,7 +68,7 @@ var AwsSignRequest = class {
 	/**
 	* @description Get and set aws credentials from local ~.aws/credentials
 	* @param {string} profile - The profile name in the credentials file.
-	* @returns {Promise<aws4.Credentials>} - The set AWS credentials.
+	* @returns {Promise<Credentials>} - The set AWS credentials.
 	*/
 	async setCredentialsFromConfig(profile) {
 		const getShared = (0, _aws_sdk_credential_providers.fromIni)({ profile });
@@ -76,7 +77,7 @@ var AwsSignRequest = class {
 	}
 	/**
 	* @description Get and set aws credentials from environment variables
-	* @returns {Promise<aws4.Credentials>} - The set AWS credentials.
+	* @returns {Promise<Credentials>} - The set AWS credentials.
 	*/
 	async setCredentialsFromEnv() {
 		const env = (0, _aws_sdk_credential_providers.fromEnv)();
@@ -164,7 +165,7 @@ var AwsSignRequest = class {
 	/**
 	* @description Sign the request with the credentials.
 	* @param {object} request - The request object.
-	* @param {aws4.Credentials} [credentials] - The AWS credentials to use for signing. (optional)
+	* @param {Credentials} [credentials] - The AWS credentials to use for signing. (optional)
 	* @returns {object} - The aws4 signed request object.
 	*/
 	sign(request, credentials = void 0) {

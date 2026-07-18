@@ -1,3 +1,5 @@
+import type { Credentials } from 'aws4';
+
 export default AwsSignRequest;
 export type Plugin = any;
 /**
@@ -26,21 +28,21 @@ declare class AwsSignRequest {
     session: any;
     /**
      * @description Set aws credentials manually, e.g., env
-     * @param {aws4.Credentials} credentials - The AWS credentials to set.
-     * @returns {aws4.Credentials} - The set AWS credentials.
+     * @param {Credentials} credentials - The AWS credentials to set.
+     * @returns {Credentials} - The set AWS credentials.
      */
-    setCredentials(credentials: aws4.Credentials): aws4.Credentials;
+    setCredentials(credentials: Credentials): Credentials;
     /**
      * @description Get and set aws credentials from local ~.aws/credentials
      * @param {string} profile - The profile name in the credentials file.
-     * @returns {Promise<aws4.Credentials>} - The set AWS credentials.
+     * @returns {Promise<Credentials>} - The set AWS credentials.
      */
-    setCredentialsFromConfig(profile: string): Promise<aws4.Credentials>;
+    setCredentialsFromConfig(profile: string): Promise<Credentials>;
     /**
      * @description Get and set aws credentials from environment variables
-     * @returns {Promise<aws4.Credentials>} - The set AWS credentials.
+     * @returns {Promise<Credentials>} - The set AWS credentials.
      */
-    setCredentialsFromEnv(): Promise<aws4.Credentials>;
+    setCredentialsFromEnv(): Promise<Credentials>;
     /**
      * @description Create a session login.
      * @param {object} params - The parameters for assuming a role.
@@ -66,9 +68,9 @@ declare class AwsSignRequest {
     /**
      * @description Sign the request with the credentials.
      * @param {object} request - The request object.
-     * @param {aws4.Credentials} [credentials] - The AWS credentials to use for signing. (optional)
+     * @param {Credentials} [credentials] - The AWS credentials to use for signing. (optional)
      * @returns {object} - The aws4 signed request object.
      */
-    sign(request: object, credentials?: aws4.Credentials): object;
+    sign(request: object, credentials?: Credentials): object;
     #private;
 }

@@ -1,6 +1,7 @@
 import { AssumeRoleCommand, STSClient } from '@aws-sdk/client-sts';
 import { fromEnv, fromIni } from '@aws-sdk/credential-providers';
 import aws4 from 'aws4';
+/** @import { Credentials } from 'aws4' */
 /**
  * @typedef { import("superagent").Plugin } Plugin
  */
@@ -35,8 +36,8 @@ class AwsSignRequest {
 
   /**
    * @description Set aws credentials manually, e.g., env
-   * @param {aws4.Credentials} credentials - The AWS credentials to set.
-   * @returns {aws4.Credentials} - The set AWS credentials.
+   * @param {Credentials} credentials - The AWS credentials to set.
+   * @returns {Credentials} - The set AWS credentials.
    */
   setCredentials(credentials) {
     this.#credentials = credentials;
@@ -46,7 +47,7 @@ class AwsSignRequest {
   /**
    * @description Get and set aws credentials from local ~.aws/credentials
    * @param {string} profile - The profile name in the credentials file.
-   * @returns {Promise<aws4.Credentials>} - The set AWS credentials.
+   * @returns {Promise<Credentials>} - The set AWS credentials.
    */
   async setCredentialsFromConfig(profile) {
     const getShared = fromIni({ profile });
@@ -56,7 +57,7 @@ class AwsSignRequest {
 
   /**
    * @description Get and set aws credentials from environment variables
-   * @returns {Promise<aws4.Credentials>} - The set AWS credentials.
+   * @returns {Promise<Credentials>} - The set AWS credentials.
    */
   async setCredentialsFromEnv() {
     const env = fromEnv();
@@ -163,7 +164,7 @@ class AwsSignRequest {
   /**
    * @description Sign the request with the credentials.
    * @param {object} request - The request object.
-   * @param {aws4.Credentials} [credentials] - The AWS credentials to use for signing. (optional)
+   * @param {Credentials} [credentials] - The AWS credentials to use for signing. (optional)
    * @returns {object} - The aws4 signed request object.
    */
   sign(request, credentials = undefined) {

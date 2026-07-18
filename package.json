@@ -37,12 +37,14 @@
     "lint": "oxlint . && oxfmt --check .",
     "lint:fix": "oxlint . --fix && oxfmt --write .",
     "jest:vm": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
-    "test": "pnpm run lint && pnpm run jest:vm",
+    "test:types": "tsc --project test/types/tsconfig.json",
+    "test": "pnpm run lint && pnpm run test:types && pnpm run jest:vm",
     "prepare": "husky"
   },
   "dependencies": {
     "@aws-sdk/client-sts": "^3.1075.0",
     "@aws-sdk/credential-providers": "^3.1075.0",
+    "@types/aws4": "^1.11.6",
     "aws4": "^1.13.2"
   },
   "devDependencies": {
