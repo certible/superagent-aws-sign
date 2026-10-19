@@ -123,7 +123,7 @@ var AwsSignRequest = class {
 					const query = new URLSearchParams(req.qs);
 					path = path + (path.includes("?") ? "&" : "?") + query.toString();
 				}
-				req.header = sign({
+				const request = {
 					host: parsedUrl.host,
 					method: req.method,
 					path,
@@ -131,7 +131,8 @@ var AwsSignRequest = class {
 					service,
 					region,
 					headers
-				}, cred).headers;
+				};
+				req.header = sign(request, cred).headers;
 				req.end = req._originalEnd;
 				req.end(callback);
 				return this;

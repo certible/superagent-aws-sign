@@ -15,7 +15,7 @@ var __copyProps = (to, from, except, desc) => {
 	}
 	return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", {
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule || !__hasOwnProp.call(mod, "default") ? __defProp(target, "default", {
 	value: mod,
 	enumerable: true
 }) : target, mod));
@@ -146,7 +146,7 @@ var AwsSignRequest = class {
 					const query = new URLSearchParams(req.qs);
 					path = path + (path.includes("?") ? "&" : "?") + query.toString();
 				}
-				req.header = sign({
+				const request = {
 					host: parsedUrl.host,
 					method: req.method,
 					path,
@@ -154,7 +154,8 @@ var AwsSignRequest = class {
 					service,
 					region,
 					headers
-				}, cred).headers;
+				};
+				req.header = sign(request, cred).headers;
 				req.end = req._originalEnd;
 				req.end(callback);
 				return this;

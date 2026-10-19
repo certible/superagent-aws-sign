@@ -2,7 +2,7 @@ const { describe, it, expect, beforeEach } = require('@jest/globals');
 const superagent = require('superagent');
 const AwsSignRequest = require('../index.cjs');
 
-require('dotenv').config();
+require('dotenv').config({ quiet: true });
 
 const ROLE_ARN = process.env.ROLE_ARN;
 const GATEWAY_URL = process.env.GATEWAY_URL;
